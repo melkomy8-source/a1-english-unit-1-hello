@@ -231,7 +231,7 @@ h1, h2, h3, h4 {
   counter-increment: ex-item;
   padding-left: 2rem;
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
 }
 .exercise-list li::before {
   content: counter(ex-item) ".";
