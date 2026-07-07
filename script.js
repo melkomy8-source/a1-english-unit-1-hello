@@ -1,5 +1,3 @@
-const vocab = ["hello", "goodbye", "morning", "name", "nice", "meet", "yes", "no", "please", "thank you"];
-
 const fillBlanks = [
   "I ___ a student.",
   "She ___ my sister.",
@@ -88,17 +86,6 @@ const listeningExercises = [
   },
 ];
 
-// Render vocab tags
-const vocabGrid = document.getElementById("vocab-grid");
-if (vocabGrid) {
-  vocab.forEach((w) => {
-    const span = document.createElement("span");
-    span.className = "vocab-tag";
-    span.textContent = w;
-    vocabGrid.appendChild(span);
-  });
-}
-
 // Helper: render blanks
 function blankHTML() {
   return '<span class="blank"></span>';
@@ -174,10 +161,8 @@ if (rfList) {
   });
 }
 
-// Listening exercises
-const listeningContainer = document.getElementById("listening-exercises");
-if (listeningContainer) {
-listeningExercises.forEach((ex) => {
+// Helper: render one listening dialogue
+function renderListeningDialogue(ex, container) {
   const card = document.createElement("div");
   card.className = "listening-card";
   let html = `<div class="lh-header"><span class="lh-bar"></span>Dialogue ${ex.dialogueNum}</div>`;
@@ -185,7 +170,7 @@ listeningExercises.forEach((ex) => {
   ex.questions.forEach((q, i) => {
     const num = i + 1;
     if (q.isFill) {
-      html += `<p style="color:var(--cream);padding-top:0.5rem;border-top:1px dotted var(--border);"><strong class="q-num" style="margin-right:0.5rem;">${num}.</strong>${q.q}</p>`;
+      html += `<p style="color:var(--muted-foreground);padding-top:0.5rem;border-top:1px dotted var(--border);"><strong class="q-num" style="margin-right:0.5rem;">${num}.</strong>${q.q}</p>`;
     } else if (q.isTF) {
       html += `<div class="mc-block"><div class="mc-question"><span class="q-num">${num}.</span>${q.q}</div><span class="tf-tag" style="margin-left:2rem;">( True / False )</span></div>`;
     } else {
@@ -198,6 +183,21 @@ listeningExercises.forEach((ex) => {
   });
   html += "</div>";
   card.innerHTML = html;
-  listeningContainer.appendChild(card);
+  container.appendChild(card);
+}
+
+// Listening exercises — Dialogues 1 & 2 (Page 6)
+const listeningContainer = document.getElementById("listening-exercises");
+if (listeningContainer) {
+  listeningExercises.slice(0, 2).forEach((ex) => {
+    renderListeningDialogue(ex, listeningContainer);
+  });
+}
+
+// Listening exercise — Dialogue 3 (Page 7)
+const listeningContainer2 = document.getElementById("listening-dialogue-3");
+if (listeningContainer2) {
+  listeningExercises.slice(2).forEach((ex) => {
+    renderListeningDialogue(ex, listeningContainer2);
   });
 }
