@@ -90,12 +90,14 @@ const listeningExercises = [
 
 // Render vocab tags
 const vocabGrid = document.getElementById("vocab-grid");
-vocab.forEach((w) => {
-  const span = document.createElement("span");
-  span.className = "vocab-tag";
-  span.textContent = w;
-  vocabGrid.appendChild(span);
-});
+if (vocabGrid) {
+  vocab.forEach((w) => {
+    const span = document.createElement("span");
+    span.className = "vocab-tag";
+    span.textContent = w;
+    vocabGrid.appendChild(span);
+  });
+}
 
 // Helper: render blanks
 function blankHTML() {
@@ -104,64 +106,77 @@ function blankHTML() {
 
 // Fill-in-the-blanks
 const fbList = document.getElementById("fill-blanks");
-fillBlanks.forEach((item) => {
-  const li = document.createElement("li");
-  const parts = item.split("___");
-  li.innerHTML = parts[0] + blankHTML() + parts[1];
-  fbList.appendChild(li);
-});
+if (fbList) {
+  fillBlanks.forEach((item) => {
+    const li = document.createElement("li");
+    const parts = item.split("___");
+    li.innerHTML = parts[0] + blankHTML() + parts[1];
+    fbList.appendChild(li);
+  });
+}
 
 // Pronoun replacements
 const prList = document.getElementById("pronoun-replacements");
-pronounReplacements.forEach((item) => {
-  const li = document.createElement("li");
-  const parts = item.split("___");
-  li.innerHTML = parts[0] + blankHTML() + parts[1];
-  prList.appendChild(li);
-});
+if (prList) {
+  pronounReplacements.forEach((item) => {
+    const li = document.createElement("li");
+    const parts = item.split("___");
+    li.innerHTML = parts[0] + blankHTML() + parts[1];
+    prList.appendChild(li);
+  });
+}
 
 // Reading dialogue
 const rdBox = document.getElementById("reading-dialogue");
-dialogue.forEach((d) => {
-  const div = document.createElement("div");
-  div.className = "dialogue-line";
-  div.innerHTML = `<div class="dialogue-speaker">${d.speaker}</div><div class="dialogue-text">${d.line}</div>`;
-  rdBox.appendChild(div);
-});
+if (rdBox) {
+  dialogue.forEach((d) => {
+    const div = document.createElement("div");
+    div.className = "dialogue-line";
+    div.innerHTML = `<div class="dialogue-speaker">${d.speaker}</div><div class="dialogue-text">${d.line}</div>`;
+    rdBox.appendChild(div);
+  });
+}
 
 // True/False
 const tfList = document.getElementById("true-false");
-trueFalse.forEach((item) => {
-  const li = document.createElement("li");
-  li.innerHTML = `<span>${item}</span><span class="tf-tag">( True / False )</span>`;
-  tfList.appendChild(li);
-});
+if (tfList) {
+  trueFalse.forEach((item) => {
+    const li = document.createElement("li");
+    li.innerHTML = `<span>${item}</span><span class="tf-tag">( True / False )</span>`;
+    tfList.appendChild(li);
+  });
+}
 
 // Multiple Choice Reading
 const mcContainer = document.getElementById("mc-reading");
-mcReading.forEach((item, i) => {
-  const div = document.createElement("div");
-  div.className = "mc-block";
-  let optionsHTML = '<ul class="mc-options">';
-  item.options.forEach((opt, j) => {
-    const letter = String.fromCharCode(97 + j);
-    optionsHTML += `<li><span class="mc-letter">${letter}</span><span>${opt}</span></li>`;
+if (mcContainer) {
+  mcReading.forEach((item, i) => {
+    const div = document.createElement("div");
+    div.className = "mc-block";
+    let optionsHTML = '<ul class="mc-options">';
+    item.options.forEach((opt, j) => {
+      const letter = String.fromCharCode(97 + j);
+      optionsHTML += `<li><span class="mc-letter">${letter}</span><span>${opt}</span></li>`;
+    });
+    optionsHTML += "</ul>";
+    div.innerHTML = `<div class="mc-question"><span class="q-num">${i + 5}.</span>${item.q}</div>${optionsHTML}`;
+    mcContainer.appendChild(div);
   });
-  optionsHTML += "</ul>";
-  div.innerHTML = `<div class="mc-question"><span class="q-num">${i + 5}.</span>${item.q}</div>${optionsHTML}`;
-  mcContainer.appendChild(div);
-});
+}
 
 // Reading Fill in the Blanks
 const rfList = document.getElementById("reading-fill");
-readingFill.forEach((item) => {
-  const li = document.createElement("li");
-  li.innerHTML = item.replace("{____}", blankHTML());
-  rfList.appendChild(li);
-});
+if (rfList) {
+  readingFill.forEach((item) => {
+    const li = document.createElement("li");
+    li.innerHTML = item.replace("{____}", blankHTML());
+    rfList.appendChild(li);
+  });
+}
 
 // Listening exercises
 const listeningContainer = document.getElementById("listening-exercises");
+if (listeningContainer) {
 listeningExercises.forEach((ex) => {
   const card = document.createElement("div");
   card.className = "listening-card";
@@ -184,4 +199,5 @@ listeningExercises.forEach((ex) => {
   html += "</div>";
   card.innerHTML = html;
   listeningContainer.appendChild(card);
-});
+  });
+}
