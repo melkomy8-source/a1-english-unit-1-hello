@@ -170,7 +170,7 @@ function renderListeningDialogue(ex, container) {
   ex.questions.forEach((q, i) => {
     const num = i + 1;
     if (q.isFill) {
-      html += `<p style="color:var(--muted-foreground);padding-top:0.5rem;border-top:1px dotted var(--border);"><strong class="q-num" style="margin-right:0.5rem;">${num}.</strong>${q.q}</p>`;
+      html += `<div class="mc-block"><div class="mc-question"><span class="q-num">${num}.</span>${q.q}</div></div>`;
     } else if (q.isTF) {
       html += `<div class="mc-block"><div class="mc-question"><span class="q-num">${num}.</span>${q.q}</div><span class="tf-tag" style="margin-left:2rem;">( True / False )</span></div>`;
     } else {
