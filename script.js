@@ -1,12 +1,3 @@
-const sections = [
-  { num: 1, label: "Phonetics" },
-  { num: 2, label: "Vocabulary" },
-  { num: 3, label: "Grammar" },
-  { num: 4, label: "Reading" },
-  { num: 5, label: "Listening" },
-  { num: 6, label: "Speaking" },
-];
-
 const vocab = ["hello", "goodbye", "morning", "name", "nice", "meet", "yes", "no", "please", "thank you"];
 
 const fillBlanks = [
@@ -96,16 +87,6 @@ const listeningExercises = [
     ],
   },
 ];
-
-// Render TOC
-const tocList = document.getElementById("toc-list");
-sections.forEach((s) => {
-  const li = document.createElement("li");
-  li.innerHTML = `<span class="toc-num">Part ${s.num}</span><span class="toc-label-item">${s.label}</span><span class="toc-page">p.${s.num}</span>`;
-  li.addEventListener("click", () => { document.getElementById("part-" + s.num).scrollIntoView({ behavior: "smooth" }); });
-  li.style.cursor = "pointer";
-  tocList.appendChild(li);
-});
 
 // Render vocab tags
 const vocabGrid = document.getElementById("vocab-grid");
