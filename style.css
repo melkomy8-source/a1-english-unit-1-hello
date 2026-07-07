@@ -150,6 +150,9 @@ h1, h2, h3, h4 {
 .table-wrap.compact .sound-cell {
   font-size: 1.25rem;
 }
+#part-2a { margin-top: 2.5rem; }
+#part-3a { margin-top: 2rem; }
+#listening-exercises .listening-card + .listening-card { margin-top: 2.5rem; }
 .pronoun-cell { font-weight: 700; color: var(--navy-deep); }
 .verb-cell { font-weight: 700; color: var(--orange); }
 .example-cell { color: var(--text); }
@@ -176,6 +179,11 @@ h1, h2, h3, h4 {
 }
 .figure-card.constrained .figure-img {
   max-height: 260px;
+  width: auto;
+  object-fit: contain;
+}
+.figure-card.small .figure-img {
+  max-height: 160px;
   width: auto;
   object-fit: contain;
 }
