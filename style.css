@@ -176,7 +176,7 @@ h1, h2, h3, h4 {
 }
 .figure-img { width: 100%; display: block; }
 #part-2a .figure-img { max-height: 400px; width: auto; object-fit: contain; margin: 0 auto; }
-#part-2b .figure-img { max-height: 150px; width: auto; object-fit: contain; margin: 0 auto; }
+#part-2b .figure-img { max-height: 280px; width: auto; object-fit: contain; margin: 0 auto; }
 
 
 /* Subheadings */
