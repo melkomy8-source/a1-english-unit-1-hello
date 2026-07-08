@@ -93,6 +93,7 @@ h1, h2, h3, h4 {
 
 /* Section Header */
 .section { margin-bottom: 0; }
+.a4-page-content > .section:last-of-type { margin-bottom: 1.5rem; }
 .section-header {
   display: flex;
   align-items: flex-end;
