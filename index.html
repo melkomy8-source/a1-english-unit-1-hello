@@ -11,7 +11,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="icon" href="logo.jpg" type="image/jpeg" />
-  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="stylesheet" href="style.css?v=4" />
+  <style>
+    .exercise-list { list-style: none; padding-left: 0; counter-reset: ex-item; }
+    .exercise-list li { counter-increment: ex-item; padding-left: 2rem; position: relative; margin-bottom: 0.35rem; }
+    .exercise-list li::before { content: counter(ex-item) "."; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
+  </style>
 </head>
 <body>
 
